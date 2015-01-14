@@ -1,0 +1,6 @@
+{
+	{
+		name: 'mongodb_moreover',
+		address: 'some.address.goes.here'
+	}
+}
