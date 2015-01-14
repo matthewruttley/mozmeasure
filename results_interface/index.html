@@ -21,6 +21,17 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+	
+	
   </head>
 
   <body>
@@ -63,19 +74,60 @@
 		<div class='row'>
 		  <div class='col-md-8'>
 			<h2>ROC Curves</h2>
-			
+			  <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+			  <script>
+				$(function () {
+				  $('#container').highcharts({
+					  title: {
+						  text: 'ROC',
+						  x: -20 //center
+					  },
+					  subtitle: {
+						  text: "Reciever Operating Characteristic"
+					  },
+					  xAxis: {
+						  categories: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+						  title: {
+							  text: "False Positives"
+						  },
+					  },
+					  yAxis: {
+						  title: {
+							  text: 'True Positives'
+						  },
+						  plotLines: [{
+							  value: 0,
+							  width: 1,
+							  color: '#808080'
+						  }],
+						  min: 0,
+						  max: 1,
+					  },
+					  tooltip: {
+						  valueSuffix: '¡C'
+					  },
+					  legend: {
+						  layout: 'vertical',
+						  align: 'right',
+						  verticalAlign: 'middle',
+						  borderWidth: 0
+					  },
+					  series: [{
+						  name: 'LWCA',
+						  data: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 1]
+					  }, {
+						  name: 'LICA',
+						  data: [0, 0.2, 0.3, 0.5, 0.7, 0.8, 1]
+					  }, {
+						  name: 'LICA+MaxChunk',
+						  data: [0, 0.12, 0.25, 0.37, 0.9, 1]
+					  }]
+				  });
+			  });
+			  </script>
 		  </div>
 		</div>
     </div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
 
