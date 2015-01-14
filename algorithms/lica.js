@@ -1,9 +1,11 @@
-//This will run LICA
+//This runs the LICA algorithm
+
+function setup(){
+	console.log('Setting up LICA...')
+}
 
 function classify(url, title){
 
 }
 
-function setup(){
-
-}
+exports.setup = setup;
