@@ -5,9 +5,10 @@ function setup(){
 }
 
 
-function classify(url, title){
-
+function classify(url, title, model){
+	console.log(model)
 }
 
  
 exports.setup = setup;
+exports.classify = classify;
